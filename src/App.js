@@ -8,6 +8,7 @@ import Footer from "./components/common/Footer";
 import Home from "./components/home/Home";
 import StaffList from "./components/staff/StaffList";
 import PetsList from "./components/pets/PetsList";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 /*
   Data
@@ -25,11 +26,18 @@ function App() {
 
   return (
     <div className="wrapper">
-      <Nav />
-      <Home employees={employees} owners={owners} pets={pets} />
-      <StaffList employees={employees} />
-      <PetsList pets={pets} />
-      <Footer />
+      <Router>
+        <Nav/>
+        <Routes>
+              <Route path="/" element={<Home employees={employees} owners={owners} pets={pets}/>}>
+              </Route>
+              <Route path="/staff" element={<StaffList employees={employees}/>}></Route>
+              <Route path="/pets" element={<Navigate replace to="/pets/cats" pets={pets}/>}></Route>
+              <Route path="/pets/:id"element={<PetsList pets={pets}/>}></Route>
+              </Routes>
+
+              <Footer/>
+              </Router>
     </div>
   );
 }
