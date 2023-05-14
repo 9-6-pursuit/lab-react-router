@@ -40,7 +40,7 @@ function App() {
               path="/staff"
               element={<StaffList employees={employees} />}
             />
-            {/* <PetsList pets={pets} /> */}
+            <Route path="/pets" element={<PetsList pets={pets} />} />
           </Routes>
         </main>
         <Footer />
