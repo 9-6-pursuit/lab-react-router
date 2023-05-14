@@ -11,6 +11,7 @@ import Footer from "./components/common/Footer";
 import Home from "./components/home/Home";
 import StaffList from "./components/staff/StaffList";
 import PetsList from "./components/pets/PetsList";
+import OwnerList from "./components/owners/OwnerList";
 
 /*
   Data
@@ -35,10 +36,11 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home employees={employees} owners={owners} pets={pets}/>}/>
-            
             <Route path="/staff" element={<StaffList employees={employees} />} /> 
             <Route path="/pets" element={<Navigate to="/pets/cats"/>} />
             <Route path="/pets/*" element={<PetsList pets={pets} />}/>
+
+            <Route path="/owners" element={<OwnerList owners={owners} /> } />
            
 
           </Routes>
@@ -56,3 +58,9 @@ export default App;
 
 //Added Navigate in order to redirect pets to pets/cats
 /* <Route path="/pets" element={<Navigate to="/pets/cats" />} /> */
+
+/*  For extra, I am trying to add owners. I realized that there is already some code written for this. The ownerData was already imported. I import the OwnerList here, after I create it. I see that the useState for owners is the ownerData.
+
+I add a route for the owners and I pass the owners prop down as owners.
+
+*/
