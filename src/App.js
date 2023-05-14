@@ -23,6 +23,12 @@ function App() {
   const [employees] = useState(employeeData);
   const [owners] = useState(ownerData);
   const [pets] = useState(petData);
+  const cats = pets.filter((pet) => {
+    return pet.kind === "Cat";
+  });
+  const dogs = pets.filter((pet) => {
+    return pet.kind === "Dog";
+  });
 
   return (
     <div className="wrapper">
@@ -41,6 +47,8 @@ function App() {
               element={<StaffList employees={employees} />}
             />
             <Route path="/pets" element={<PetsList pets={pets} />} />
+            <Route path="/pets/cats" element={<PetsList pets={cats} />} />
+            <Route path="/pets/dogs" element={<PetsList pets={dogs} />} />
           </Routes>
         </main>
         <Footer />
