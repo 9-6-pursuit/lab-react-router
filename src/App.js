@@ -32,7 +32,7 @@ function App() {
           <Route path="/" element={<Home employees={employees} owners={owners} pets={pets} />}>
           </Route>
           <Route path="/staff" element={<StaffList employees={employees} />}></Route>
-          <Route path="/pets" element={<Navigate replace to="/pets/cats" pets={pets} />}> </Route>
+          <Route path="/pets" element={<Navigate to="/pets/cats" />}> </Route>
           <Route path="/pets/:id" element={<PetsList pets={pets} />}> </Route>
         </Routes>
         <Footer />

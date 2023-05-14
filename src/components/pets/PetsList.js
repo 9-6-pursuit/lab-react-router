@@ -30,6 +30,7 @@ export const PetsList = ({ pets }) => {
         dogs.map((dog) => (
           <Pet key={dog.id} kind="dog" pet={dog} />
         ))}
+
       </section>
     </section>
   );
