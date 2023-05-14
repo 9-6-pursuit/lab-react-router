@@ -1,4 +1,4 @@
-// import
+// import "./index.css";
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 /*
@@ -32,8 +32,8 @@ function App() {
 
   return (
     <div className="wrapper">
-        <Nav />
           <Router>
+          <Nav />
             <Routes>
               <Route path= "/" element = {<Home employees={employees} owners={owners} pets={pets}/>}/>
               <Route path= "/staff" element = {<StaffList employees={employees} />}/>
