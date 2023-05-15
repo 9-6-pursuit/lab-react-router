@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 /*
   Components
 */
@@ -23,13 +24,33 @@ function App() {
   const [owners] = useState(ownerData);
   const [pets] = useState(petData);
 
+  const cats = pets.filter((pet) => {
+    return pet.kind === "Cat"
+  })
+
+  const dogs = pets.filter((dog) => {
+    return dog.kind === "Dog"
+  })
+
   return (
     <div className="wrapper">
-      <Nav />
+
+      {/* 
       <Home employees={employees} owners={owners} pets={pets} />
       <StaffList employees={employees} />
-      <PetsList pets={pets} />
+      */}
+      <Nav />
       <Footer />
+      <Router>
+        
+        <Routes>
+          <Route path="/" element={<Home employees={employees} owners={owners} pets={pets} />} />
+          <Route path="/staff" element={<StaffList employees={employees} />} />
+          <Route path="./pets" element={<PetsList pets={pets} />} />
+          <Route path="./pets/dogs" element={<PetsList pets={dogs} type={'dog'} />} />
+          <Route path ="./pets/cats" element = {<PetsList pets ={cats} type = {'cat'}/>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
