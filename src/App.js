@@ -33,10 +33,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home employees={employees} owners={owners} pets={pets} />}/>
           <Route path="/staff" element={<StaffList employees={employees} />}/>
-          <Route path="/pets" element={<PetsList pets={pets} />}>
-            <Route path="/pets/cats" />
-            <Route path="/pets/dogs"/>
-          </Route> 
+          <Route path="/pets" element={<PetsList pets={pets} />}/>
+          <Route path="/pets/:id" element={<PetsList pets={pets}/>}/>
           <Route path="*"  element={<Error/>}/>         
         </Routes>
           <Footer />
