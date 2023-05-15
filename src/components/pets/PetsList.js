@@ -16,24 +16,18 @@ export const PetsList = ({ pets, type }) => {
     <section className="pets-wrapper">
       <PetsListNav cats={cats} dogs={dogs} />
       <section className="pets-list">
-        {/* All cats section */}
-        {type === "cats" ? cats.map(cat => (
+        {type === "cat" ? cats.map(cat =>
+          // All cats section 
           <Pet key={cat.id} kind="cat" pet={cat} />
-        )) :
-        type === "dogs" ? dogs.map(dog => (
+        ) :
+        type === "dog" ? dogs.map(dog =>
+          // All dogs section 
           <Pet key={dog.id} kind="dog" pet={dog} />
-        )) :
-        pets.map(pet => (
+        ) :
+        pets.map(pet =>
+          // All pets section 
           <Pet key={pet.id} kind={pet.kind.toLowerCase()} pet={pet} />
-        ))}
-        {/* {cats.map((cat) => (
-          <Pet key={cat.id} kind="cat" pet={cat} />
-        ))} */}
-
-        {/* All dogs section */}
-        {/* {dogs.map((dog) => (
-          <Pet key={dog.id} kind="dog" pet={dog} />
-        ))} */}
+        )}
       </section>
     </section>
   );
