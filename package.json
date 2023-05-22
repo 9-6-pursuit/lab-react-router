@@ -1,4 +1,5 @@
 {
+  
   "name": "update-router-lab",
   "version": "0.1.0",
   "private": true,
@@ -8,12 +9,13 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
+    
     "build": "react-scripts build",
     "test": "./node_modules/.bin/cypress open",
     "eject": "react-scripts eject"
@@ -39,6 +41,7 @@
   "devDependencies": {
     "cypress": "^9.7.0",
     "cypress-react-selector": "^2.3.16",
-    "cypress-watch-and-reload": "^1.7.4"
+    "cypress-watch-and-reload": "^1.7.4",
+    "gh-pages": "^5.0.0"
   }
 }
