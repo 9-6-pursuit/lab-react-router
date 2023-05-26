@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 /*
   Components
@@ -10,6 +10,8 @@ import Home from "./components/home/Home";
 import StaffList from "./components/staff/StaffList";
 import PetsList from "./components/pets/PetsList";
 import PetsListNav from "./components/pets/PetsListNav";
+import NotFound from "./components/404/NotFound"
+import NewPet from "./components/pets/NewPet";
 
 /*
   Data
@@ -20,10 +22,11 @@ import { employeeData } from "./data/employees.js";
 import { ownerData } from "./data/owners";
 import { petData } from "./data/pets";
 
+
 function App() {
   const [employees] = useState(employeeData);
   const [owners] = useState(ownerData);
-  const [pets] = useState(petData);
+  const [pets, setPets] = useState(petData);
   
   return (
     <div className="wrapper">
@@ -34,6 +37,8 @@ function App() {
             <Route path='/' element={<Home employees={employees} owners={owners} pets={pets} />}/>
             <Route path='/staff' element={<StaffList employees={employees} />}/>
             <Route path='/pets/*' element ={<PetsList pets={pets} />} />
+            <Route path='*' element ={<NotFound component={NotFound} /> } />
+            <Route path= '/newPets' element = {<NewPet pets={pets} setPets={setPets} />} />
           </Routes>
         </main>
         <Footer />
