@@ -11,6 +11,7 @@ export const StaffList = ({ employees }) => {
       <h2>Our Staff</h2>
       <div className="staffers">{staff}</div>
     </section>
+
   );
 };
 
